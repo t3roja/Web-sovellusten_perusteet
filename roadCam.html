@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML, CSS, and JS Demonstration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>HTML, CSS, and JavaScript Demonstration</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="iss.html">ISS Stream</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="roadCam.html">Kelikamerahaku</a></li>
+            </ul>
+            
+            <div id="calendarClockContainer">
+                <div id="clock">
+                    <p id="time"></p>
+                </div>
+    
+                <div id="calendar">
+                    <p id="date"></p>
+                </div>
+            </div>
+        
+        </nav>
+    </header>
+
+    <section id="roadCam">
+        <h2>Kelikamerahaku</h2>
+        <form id="roadCamForm">
+            <label for="location">Paikkakunta tai alue:</label>
+            <input type="text" id="location" name="location" placeholder="Paikkakunta tai alue">
+            <button id="load-data">Hae kamerat</button>
+        </form>
+
+        <p>Kamerat</p>
+        <select id="stationList" multiple></select>
+
+        <aside id="imageSection">
+            <button id="loadImages">Näytä Kuvat</button>
+            <h2>Kamerat</h2>
+            <div id="imageContainer"></div>
+
+            <table id="thumbnailTable">
+                <thead>
+                    <tr>
+                        <th>Station Name</th>
+                        <th class="sortable" onclick="sortTable(1)">Camera Description ↓↑</th>
+                        <th>Thumbnail</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            
+            
+
+        </aside>
+    </section>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

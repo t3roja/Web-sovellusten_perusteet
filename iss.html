@@ -30,24 +30,25 @@
         </nav>
     </header>
 
-    <section id="contact-section">
-        <h2>Contact Form</h2>
-        <form id="contact-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+    <section id="video-section">
+        <h2>HTML Media Demonstration</h2>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+        <p>Suora lähetys kansainväliselltä avaruusasemalta:</p>
 
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
+        <div class="video-container">
 
-            <button type="submit">Send</button>
-        </form>
-        <p id="form-message"></p>
+
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/DfEr5XCFNWM"
+                title="Live Video from the International Space Station (Official NASA Stream)" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+
+        </div>
     </section>
 
     <script src="script.js" defer></script>
+
 </body>
 
 </html>

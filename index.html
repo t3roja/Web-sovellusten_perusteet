@@ -1,25 +1,38 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-    <h1>Welcome to my website</h1>
-    <hr>
-
-    <ul>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./about.html">About</a></li>
-        <li><a href="./portfolio.html">Portfolio</a></li>
-        <li><a href="./contact.html">Contact</a></li>        
-    </ul>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML, CSS, and JS Demonstration</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+<body>
+    <header>
+        <h1>HTML, CSS, and JavaScript Demonstration</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="iss.html">ISS Stream</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="roadCam.html">Kelikamerahaku</a></li>
+            </ul>
+            
+            <div id="calendarClockContainer">
+                <div id="clock">
+                    <p id="time"></p>
+                </div>
+    
+                <div id="calendar">
+                    <p id="date"></p>
+                </div>
+            </div>
+        
+        </nav>
+    </header>
+
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+
 </html>
-
-
-<!--Portfolio Page with Links
-    Description: Expand on the personal webpage. Add a navigation bar with links to different sections:
-    Home, About, Portfolio, and Contact.
-    Objectives:
-        Use anchor tags to create hyperlinks.
-        Understand relative URL linking.
--->

@@ -1,0 +1,237 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background-color: #323232;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+nav ul li a:hover {
+    background-color: #464646;
+    border-radius: 4px;
+}
+
+/* Section Styles */
+section {
+    padding: 20px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 8px;
+    max-width: 90%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    font-size: 2em;
+    text-align: center;
+}
+
+#video-section {
+    text-align: center;
+}
+
+
+.video-container iframe {
+    width: 800px; /* Width of the iframe */
+    height: 450px; /* Height of the iframe */
+    max-width: 100%; /* Allow responsiveness */
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form input,
+form button {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: darkblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: blue;
+}
+
+/* Station List and Image Section */
+#stationList {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    height: 150px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#imageSection {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#imageContainer img {
+    max-width: 100%;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+#loadImages {
+    padding: 10px 20px;
+    background-color: darkblue;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#loadImages:hover {
+    background-color: blue;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    background-color: rgb(50, 50, 50);
+    color: white;
+}
+
+table th.sortable {
+    cursor: pointer; /* Makes it clear that you can click */
+}
+
+/* Table styling for thumbnail */
+#thumbnailTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#thumbnailTable th,
+#thumbnailTable td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.thumbnail {
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.thumbnail:hover {
+    transform: scale(1.1);
+}
+
+/* Modal Styles for Enlarged Image */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.full-size-image {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+/* Calendar and Clock in Nav */
+#calendarClockContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+}
+
+#calendar,
+#clock {
+    margin: 5px 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#clock p,
+#calendar p {
+    color: white;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav ul li a {
+        font-size: 1em;
+    }
+
+    section {
+        padding: 15px;
+        margin: 15px;
+    }
+}
