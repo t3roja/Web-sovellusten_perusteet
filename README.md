@@ -1,8 +1,4 @@
-    1.)  palautuslaatikkoon tekstitiedosto, jossa on github repositoryyn linkki (TARKISTA että on julkinen repo ja linkki vie siihen!!)    
-    2.) github repositoryssä on readme.md tiedosto, jossa listaat ARVIOINTIKRITEERIEN mukaiset toteutukset, eli tiedosto ja koodirivi johon olet toteutuksen tehnyt. Näin oma oikeusturvasi toteutuu ja tarkastajan työ nopeutuu huomattavasti.  
-    3.)  Muista julkaista sivustosi joko Github Pagesissa, tai jossain muualla ja jaa LINKKI MYÖS JULKAISUUN joko githubissa readme.md tiedostossa tai palautuskansion tekstitiedostossasi.
 
-HTML
 
 1) Basic HTML structure is present.
 
@@ -42,4 +38,81 @@ CSS
 
 2) Use of classes and IDs to style specific elements.
 
+    Selektoreita on käytetty esim styles.css rivellä 59-73
+
+
+3) Implementation of responsive design elements.
+
+    Löytyy vaikkapa navigointipalkista styles.css riveiltä 23-28
+
+
+4) Use of layouts for advanced user interfaces (arrays, float, flexbox, css grid)
+
+    Samoin kuin kohta 3, löytyy navigointipalkista
+
+
+5) Styling demonstrates a strong grasp of layout principles, aesthetics, and user experience.
+
+    Arvostelija päättää
+
+
+
+
+JavaScript Basics
+
+1) Simple interactions (like alerts on button click).
+
+    "click" löytyy vaikkapa script.js rivin 65 EventListeneristä
+
+
+2) Multiple event listeners and basic DOM manipulations
+
+    Kuin kohta 1 peräkkäin on pari EventListeneriä. DOM - manipulaatiota löytyy esim spcript.js rivit 28-48
+    findStations - funktiosta
+
+
+3) Use of arrays, objects, and functions.
+
+    Kuin kohta 2 löytyy funktio. Arrayn käyttöä löytyy myös tästä funktiosta
+
+
+4) Advanced logic, looping through data, and dynamic DOM updates.
+
+    Logiikkaa, looppeja ja DOM päivitystä on funktiossa showImages script.js rivit 91-117
+
+
+5) Consistent use of Object-Oriented JavaScript principles.
+
+    Arvostelija päättää
+
+
+
+
+Asynchronous Operations
+
+1) Use of timers.
+
+    Ajastin löytyy updateClock - funktiosta script.js rivit 195 - 203
+
+
+2) Successful implementation of an AJAX call or Fetch.
+
+    fetch: käytetään script.js rifindStations - funktiossa riveillä 28-48
+
+
+3)  Data from the asynchronous call is displayed on the webpage.
     
+    Dataa näytetään kelikamerakuvina, script.js displayThumbnail - funktio rivit 147-176. Kuvat näytetään
+    roadCam.html thumbnailTable - taulukossa ja sittemmin täysikokoisina kuvina
+
+
+4) Error handling is implemented (for failed API calls, etc.).
+
+    Virheenhallintaa läytyy script.js getImages - funktiosta riveillä 120-136
+
+
+5) Effective use of asynchronous data to enhance user experience (like filtering, sorting).
+
+    Kuvia voidaan järjestää roadCam.html taulukossa. Funktio sortTable löytyy script.js riveiltä 214-250
+
+
