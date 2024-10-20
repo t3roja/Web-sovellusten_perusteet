@@ -71,7 +71,6 @@ section h2 {
     max-width: 100%;
 }
 
-/* Form Styles */
 form {
     display: flex;
     flex-direction: column;

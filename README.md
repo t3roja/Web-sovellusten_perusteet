@@ -17,4 +17,29 @@ HTML
 
 3) Use of forms, links, and media.
 
-    Form käyttö on tehty roadCam.html riveillä 43-38, linkkejä löytyy nav-valikosta 
+    Form käyttö on tehty roadCam.html riveillä 43-38, linkkejä löytyy nav-valikosta riveiltä 16-18.
+    Mediaa on käytetty iss.html riveillä 39-48
+
+
+4) Tables are effectively used.
+
+    Taulukoita on käytetty kuvien esikatseluiden ja tietojen esittämiseen roadCam.html riveillä 62-71
+
+
+5)  Consistent use of semantic HTML throughout, ensuring better structure and understanding of the content.
+
+    roadCam.html on pyritty tekemään kohdan 5 mukaisesti
+
+
+
+
+CSS
+
+1) Basic CSS styling (colors, fonts).
+
+    Värit ja fontit ovat heti styles.css alussa esim rivit 2-9
+
+
+2) Use of classes and IDs to style specific elements.
+
+    
