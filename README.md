@@ -6,10 +6,15 @@ HTML
 
 1) Basic HTML structure is present.
 
-    Perus HTML-rakenne löytyy esim. index.html riveiltä 11-32
+    Perus HTML-rakenne löytyy esim. index.html riveiltä 11-45
 
 
 
 2) HTML structure with clear content differentiation (headings, paragraphs, lists).
 
-    
+    Myös kohdan 2 rakennetta löytyy index.html riveiltä 11-45
+
+
+3) Use of forms, links, and media.
+
+    Form käyttö on tehty roadCam.html riveillä 43-38, linkkejä löytyy nav-valikosta 
