@@ -2,7 +2,12 @@ const baseUrl = "https://tie.digitraffic.fi/api/weathercam/v1/stations";
 const stationList = document.getElementById("stationList");
 const imageContainer = document.getElementById("imageContainer");
 const stationData = [];
-let sortDirection = true; // true for ascending, false for descending
+const selectedStations = document.getElementById("selectedStations");
+let sortDirection = true;
+
+updateClock();
+updateDate();
+setInterval(updateClock, 1000);
 
 document.addEventListener("DOMContentLoaded", function () {
     findStations();
@@ -57,23 +62,51 @@ function filterNames(location) {
     });
 }
 
+document.getElementById("addStation").addEventListener("click", addSelectedStation);
+document.getElementById("removeStation").addEventListener("click", removeSelectedStation);
+
+function addSelectedStation() {
+    const selectedOptions = Array.from(stationList.selectedOptions);
+    selectedOptions.forEach(option => {
+        const newOption = document.createElement("option");
+        newOption.value = option.value;
+        newOption.text = option.text;
+        selectedStations.appendChild(newOption);
+        option.remove();
+    });
+}
+
+function removeSelectedStation() {
+    const selectedOptions = Array.from(selectedStations.selectedOptions);
+    selectedOptions.forEach(option => {
+        const newOption = document.createElement("option");
+        newOption.value = option.value;
+        newOption.text = option.text;
+        stationList.appendChild(newOption);
+        option.remove();
+    });
+}
+
+
 async function showImages() {
-    const selectedStations = Array.from(document.getElementById("stationList").selectedOptions)
-                                    .map(option => option.text);
-
+    const selectedStationsList = Array.from(document.getElementById("selectedStations").options)
+        .map(option => option.text);
     const thumbnailTableBody = document.querySelector("#thumbnailTable tbody");
-    thumbnailTableBody.innerHTML = "";  // Clear previous entries
+    thumbnailTableBody.innerHTML = "";
 
-    for (let location of selectedStations) {
+    console.log("Selected Stations List:", selectedStationsList);
+
+    for (let location of selectedStationsList) {
         for (let item of stationData) {
             if (location === item[1]) {
-                const imageDetails = await getImages(item[0]);  // Fetch all image URLs and presentation names for the station
 
-                // Display each image and its corresponding description in the table
+                const imageDetails = await getImages(item[0]);
+
                 for (let { imageUrl, presentationName } of imageDetails) {
+
                     const isValidImage = await checkImage(imageUrl);
                     if (isValidImage) {
-                        displayThumbnail(item[1], imageUrl, presentationName);  // Pass station name, image URL, and description to displayThumbnail
+                        displayThumbnail(item[1], imageUrl, presentationName);
                     } else {
                         console.warn(`Invalid image URL: ${imageUrl}`);
                     }
@@ -86,18 +119,21 @@ async function showImages() {
 
 async function getImages(stationId) {
     const url = baseUrl + "/" + stationId;
-    const response = await fetch(url);
-    const data = await response.json();
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
 
-    // Extract all image URLs and their corresponding presentation names
-    const images = data.properties.presets.map(preset => ({
-        imageUrl: preset.imageUrl,
-        presentationName: preset.presentationName
-    }));
+        const images = data.properties.presets.map(preset => ({
+            imageUrl: preset.imageUrl,
+            presentationName: preset.presentationName
+        }));
 
-    return images;  // Return an array of objects containing imageUrl and presentationName
+        return images;
+    } catch (error) {
+        console.error("Error fetching images for station:", stationId, error);
+        return [];
+    }
 }
-
 
 function checkImage(url) {
     return new Promise(resolve => {
@@ -109,41 +145,33 @@ function checkImage(url) {
 }
 
 function displayThumbnail(stationName, imageUrl, presentationName) {
+
     const thumbnailTableBody = document.querySelector("#thumbnailTable tbody");
-
-    // Create a new row
     const row = document.createElement("tr");
-
-    // Create a cell for the station name
     const nameCell = document.createElement("td");
+
     nameCell.textContent = stationName;
 
-    // Create a cell for the presentation name (camera description)
     const descriptionCell = document.createElement("td");
     descriptionCell.textContent = presentationName;
 
-    // Create a cell for the thumbnail
     const thumbnailCell = document.createElement("td");
 
-    // Create the thumbnail image
     const thumb = document.createElement("img");
     thumb.src = imageUrl;
-    thumb.classList.add("thumbnail");  // Add CSS class for styling
+    thumb.classList.add("thumbnail");
     thumb.alt = "Weather Camera View";
-    thumb.style.cursor = "pointer";  // Make it look clickable
+    thumb.style.cursor = "pointer";
 
-    // Add an event listener to enlarge the image on click
     thumb.addEventListener("click", () => {
-        enlargeImage(imageUrl);  // Enlarge image when clicked
+        enlargeImage(imageUrl);
     });
 
-    // Append the thumbnail to its cell and the cell to the row
     thumbnailCell.appendChild(thumb);
     row.appendChild(nameCell);
-    row.appendChild(descriptionCell);  // Append the description cell to the row
+    row.appendChild(descriptionCell);
     row.appendChild(thumbnailCell);
 
-    // Append the row to the table body
     thumbnailTableBody.appendChild(row);
 }
 
@@ -157,7 +185,6 @@ function enlargeImage(imageUrl) {
 
     modal.appendChild(fullImage);
 
-    // Close the modal when clicked
     modal.addEventListener("click", () => {
         document.body.removeChild(modal);
     });
@@ -165,7 +192,6 @@ function enlargeImage(imageUrl) {
     document.body.appendChild(modal);
 }
 
-// Function to update the time every second
 function updateClock() {
     const timeElement = document.getElementById("time");
     const now = new Date();
@@ -173,28 +199,18 @@ function updateClock() {
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const seconds = now.getSeconds().toString().padStart(2, '0');
 
-    // Format the time
     timeElement.textContent = `${hours}:${minutes}:${seconds}`;
 }
 
-// Function to update the date
 function updateDate() {
     const dateElement = document.getElementById("date");
     const now = new Date();
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
-    // Format the date (e.g., "Monday, October 15, 2024")
     dateElement.textContent = now.toLocaleDateString('en-US', options);
+
 }
 
-// Initial update of the clock and date
-updateClock();
-updateDate();
-
-// Set interval for the clock to update every second
-setInterval(updateClock, 1000);
-
-// Function to sort the table
 function sortTable() {
     var table, rows, switching, i, x, y, shouldSwitch;
     table = document.getElementById("thumbnailTable");
@@ -207,18 +223,17 @@ function sortTable() {
         for (i = 1; i < (rows.length - 1); i++) {
             shouldSwitch = false;
 
-            x = rows[i].getElementsByTagName("TD")[1]; // Change index to 1 for Camera Description
-            y = rows[i + 1].getElementsByTagName("TD")[1]; // Same here
+            x = rows[i].getElementsByTagName("TD")[1];
+            y = rows[i + 1].getElementsByTagName("TD")[1];
 
-            // Determine the comparison based on the sort direction
             if (sortDirection) {
-                // Ascending order
+
                 if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
                     shouldSwitch = true;
                     break;
                 }
             } else {
-                // Descending order
+
                 if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
                     shouldSwitch = true;
                     break;
@@ -231,6 +246,5 @@ function sortTable() {
         }
     }
 
-    // Toggle sort direction for the next click
     sortDirection = !sortDirection;
 }

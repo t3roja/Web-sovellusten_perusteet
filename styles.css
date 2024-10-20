@@ -1,4 +1,4 @@
-/* General Styles */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -8,7 +8,6 @@ body {
     line-height: 1.6;
 }
 
-/* Header Styles */
 header {
     background-color: #323232;
     color: white;
@@ -43,7 +42,6 @@ nav ul li a:hover {
     border-radius: 4px;
 }
 
-/* Section Styles */
 section {
     padding: 20px;
     margin: 20px auto;
@@ -58,15 +56,19 @@ section h2 {
     text-align: center;
 }
 
+#text-section{
+    text-align: center;
+}
+
 #video-section {
     text-align: center;
 }
 
 
 .video-container iframe {
-    width: 800px; /* Width of the iframe */
-    height: 450px; /* Height of the iframe */
-    max-width: 100%; /* Allow responsiveness */
+    width: 800px;
+    height: 450px;
+    max-width: 100%;
 }
 
 /* Form Styles */
@@ -96,15 +98,43 @@ form button:hover {
     background-color: blue;
 }
 
-/* Station List and Image Section */
-#stationList {
-    margin-top: 10px;
-    padding: 10px;
-    width: 100%;
+#stationSelectionContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+#stationList,
+#selectedStations {
+    width: 200px;
     height: 150px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    padding: 10px;
 }
+
+.station-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.station-buttons button {
+    padding: 10px;
+    font-size: 1em;
+    background-color: darkblue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.station-buttons button:hover {
+    background-color: blue;
+}
+
 
 #imageSection {
     margin-top: 20px;
@@ -130,7 +160,7 @@ form button:hover {
     background-color: blue;
 }
 
-/* Table Styles */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -150,10 +180,10 @@ table th {
 }
 
 table th.sortable {
-    cursor: pointer; /* Makes it clear that you can click */
+    cursor: pointer;
 }
 
-/* Table styling for thumbnail */
+
 #thumbnailTable {
     width: 100%;
     border-collapse: collapse;
@@ -178,7 +208,7 @@ table th.sortable {
     transform: scale(1.1);
 }
 
-/* Modal Styles for Enlarged Image */
+
 .modal {
     position: fixed;
     top: 0;
@@ -197,7 +227,6 @@ table th.sortable {
     max-height: 90%;
 }
 
-/* Calendar and Clock in Nav */
 #calendarClockContainer {
     display: flex;
     flex-direction: column;
@@ -220,7 +249,22 @@ table th.sortable {
     margin: 0;
 }
 
-/* Media Queries for Responsiveness */
+
+#loadImages {
+    padding: 10px 20px;
+    background-color: darkblue;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block; 
+}
+
+#loadImages:hover {
+    background-color: blue;
+}
+
+
 @media (max-width: 600px) {
     header h1 {
         font-size: 2em;

@@ -8,12 +8,11 @@
 </head>
 <body>
     <header>
-        <h1>HTML, CSS, and JavaScript Demonstration</h1>
+        <h1>Web sovellusten perusteet lopputyö</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="iss.html">ISS Stream</a></li>
-                <li><a href="contact.html">Contact</a></li>
                 <li><a href="roadCam.html">Kelikamerahaku</a></li>
             </ul>
             
@@ -33,25 +32,37 @@
     <section id="roadCam">
         <h2>Kelikamerahaku</h2>
         <form id="roadCamForm">
-            <label for="location">Paikkakunta tai alue:</label>
+            <label for="location">Hae paikkakuntaa tai aluetta:</label>
             <input type="text" id="location" name="location" placeholder="Paikkakunta tai alue">
-            <button id="load-data">Hae kamerat</button>
+            <button id="load-data">Etsi</button>
         </form>
+    
+        <div id="stationSelectionContainer">
 
-        <p>Kamerat</p>
-        <select id="stationList" multiple></select>
+            <select id="stationList" multiple></select>
+    
 
-        <aside id="imageSection">
-            <button id="loadImages">Näytä Kuvat</button>
+            <div class="station-buttons">
+                <button id="addStation">Lisää &gt;&gt;</button>
+                <button id="removeStation">&lt;&lt; Poista</button>
+            </div>
+    
+
+            <select id="selectedStations" multiple></select>
+        </div>
+    
+        <button id="loadImages">Näytä Valitut</button>
+
+
             <h2>Kamerat</h2>
             <div id="imageContainer"></div>
 
             <table id="thumbnailTable">
                 <thead>
                     <tr>
-                        <th>Station Name</th>
-                        <th class="sortable" onclick="sortTable(1)">Camera Description ↓↑</th>
-                        <th>Thumbnail</th>
+                        <th>Aseman nimi</th>
+                        <th class="sortable" onclick="sortTable(1)">Kuvaus ↓↑</th>
+                        <th>Esikatselu</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
