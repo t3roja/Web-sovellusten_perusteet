@@ -264,6 +264,10 @@ table th.sortable {
     background-color: blue;
 }
 
+footer{
+    text-align: center;
+}
+
 
 @media (max-width: 600px) {
     header h1 {
